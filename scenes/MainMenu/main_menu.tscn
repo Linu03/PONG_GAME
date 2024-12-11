@@ -1,0 +1,162 @@
+[gd_scene load_steps=6 format=3 uid="uid://so0dcidjvnha"]
+
+[ext_resource type="Texture2D" uid="uid://cjgcbxaasyaq3" path="res://assets/Background_PONG.jpg" id="1_amj6c"]
+[ext_resource type="Script" path="res://scenes/MainMenu/main_menu.gd" id="1_thauj"]
+[ext_resource type="FontFile" uid="uid://c2ccy8o72bxd6" path="res://assets/pixel_font.ttf" id="2_txh25"]
+[ext_resource type="AudioStream" uid="uid://c0jojao7lr46f" path="res://Sound/Background_Music/MainMenu_BackgroundMusic.mp3" id="4_rtkrj"]
+[ext_resource type="AudioStream" uid="uid://dabmr4xotee0m" path="res://Sound/Sound_Effects/accesButtonSound.mp3" id="5_6qf4p"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_thauj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_amj6c")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 48
+theme_override_fonts/font = ExtResource("2_txh25")
+theme_override_font_sizes/font_size = 37
+text = "Pong Quest: Linu Edition
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_txh25")
+theme_override_font_sizes/font_size = 24
+text = "START
+"
+
+[node name="Seperator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Options_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_txh25")
+theme_override_font_sizes/font_size = 24
+text = "OPTIONS
+"
+
+[node name="Seperator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Quit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_txh25")
+theme_override_font_sizes/font_size = 24
+text = "QUIT
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_txh25")
+theme_override_font_sizes/font_size = 50
+text = "Options Menu"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+
+[node name="Game length" type="Button" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_txh25")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Length of a game: Short Game"
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+
+[node name="Game Mode" type="Button" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_txh25")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Game mode: vs AI"
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+
+[node name="Back to Main Menu" type="Button" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_txh25")
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "BACK
+"
+
+[node name="ControlMusic" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="backgroundMusic" type="AudioStreamPlayer2D" parent="ControlMusic"]
+stream = ExtResource("4_rtkrj")
+volume_db = -13.0
+
+[node name="accesButtonSound" type="AudioStreamPlayer2D" parent="ControlMusic"]
+stream = ExtResource("5_6qf4p")
+volume_db = 3.0
+pitch_scale = 2.54
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/Game length" to="." method="_on_game_length_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/Game Mode" to="." method="_on_game_mode_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/Back to Main Menu" to="." method="_on_back_to_main_menu_pressed"]
